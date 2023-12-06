@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
+/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:37:37 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/06 03:40:20 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/06 16:16:58 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,28 @@
 
 typedef struct s_format_field
 {
-	int	width;
-	int	precision;
-	int	left_justify;
-	int	zero_padding;
-	int	always_sign;
-	int	alternative_form;
-	int	starts_with_blank;
-}		t_format_field;
+	int		width;
+	int		precision;
+	char	specifier;
+	int		left_justify;
+	int		zero_padding;
+	int		always_sign;
+	int		alternative_form;
+	int		starts_with_blank;
+}			t_format_field;
+
+int	ft_is_format_specifier(char c)
+{
+	if (c == 'd' || c == 'i' || c == 's' || c == 'x' || c == 'X' || c == 'u'
+		|| c == 'p' || c == 'c' || c == '%')
+		return (1);
+	return (0);
+}
 
 // Function to print a single character
-void	print_char(char c)
+int	print_char(char c)
 {
-	write(1, &c, 1);
+	return (write(1, &c, 1));
 }
 
 // Function to print a string
@@ -88,70 +97,95 @@ int	print_pointer(void *p)
 {
 }
 
-// Function to handle the format specifier and print accordingly
-void	handle_format(char **format, int *print_count, va_list args)
+int	print_hexa_lowercase(unsigned int d)
 {
-	t_format_field	field;
+}
 
+int	print_hexa_uppercase(unsigned int d)
+{
+}
+
+int	print_unsigned(unsigned int d)
+{
+}
+
+char	ft_get_format_specifier(char *format)
+{
+	while (format && !ft_is_format_specifier(*format))
+		format++;
+	return (*format);
+}
+
+void	ft_get_flags(char *format, t_format_field *field)
+{
+	//	HANDLE FLAGS
 	while (ft_is_flag(**format))
 	{
 		if (**format == '-')
-			field.left_justify = true;
+			field->left_justify = true;
 		else if (**format == '#')
-			field.alternative_form = true;
+			field->alternative_form = true;
 		else if (**format == ' ')
-			field.starts_with_blank = true;
+			field->starts_with_blank = true;
 		else if (**format == '0')
-			field.zero_padding = true;
+			field->zero_padding = true;
 		*format++;
 	}
-	field.width = ft_atoi(**format);
+}
+
+void	ft_get_width(char *format, t_format_field *field)
+{
+	//	HANDLE FIELD WIDTH
+	field->width = ft_atoi(**format);
 	while (ft_isdigit(**format))
 		*format++;
+	//	HANDLE STRING PRECISION (CHAR MAX)
 	if (ft_is_precision(**format))
-		field.precision = ft_atoi(++(*format));
+		field->precision = ft_atoi(++(*format));
 	while (ft_isdigit(**format))
 		*format++;
-	if (**format == 'c')
-	{
-		print_char(va_arg(args, int));
-		*print_count++;
-	}
-	else if (**format == 's')
-		print_count += print_string(va_arg(args, char *));
-	else if (**format == 'p')
-		print_count += print_pointer(va_arg(args, void *));
-	else if (**format == 'd' || **format == 'i')
-		print_count += print_int(va_arg(args, int));
-	else if (**format == 'u')
-		print_count += print_unsigned(va_arg(args, unsigned int));
-	else if (**format == 'x')
-		print_count += print_hexa(va_arg(args, void *));
-	switch (**format)
-	{
-	case 'c':
-		break ;
-	case 's':
-		*print_count += print_string(va_arg(args, char *));
-		break ;
-	case 'p':
-		// Implement logic to print a pointer in hexadecimal format
-		*print_count += print_pointer(va_arg(args, void *));
-		break ;
-	case 'd':
-	case 'i':
-		*print_count += print_int(va_arg(args, int));
-		break ;
-		// Implement cases for 'u', 'x', 'X', and '%'
-		// ...
-	case 'u':
-	case 'x':
-	case 'X':
-	case '%':
-	default:
-		// Handle unsupported format specifier or throw an error
-		break ;
-	}
+}
+
+void	ft_check_format_validity(char *format, t_format_field *field)
+{
+}
+
+int	ft_print_format(char **format, t_format_field *field, va_list args)
+{
+	int	count;
+
+	count = 0;
+	if (field->specifier == 'c')
+		count += print_char(va_arg(args, int));
+	else if (field->specifier == 's')
+		count += print_string(va_arg(args, char *));
+	else if (field->specifier == 'p')
+		count += print_pointer(va_arg(args, void *));
+	else if (field->specifier == 'd' || field->specifier == 'i')
+		count += print_int(va_arg(args, int));
+	else if (field->specifier == 'u')
+		count += print_unsigned(va_arg(args, unsigned int));
+	else if (field->specifier == 'x')
+		count += print_hexa_lowercase(va_arg(args, void *));
+	else if (field->specifier == 'X')
+		count += print_hexa_uppercase(va_arg(args, void *));
+	else if (field->specifier == '%')
+		count += print_char('%');
+	return (count);
+}
+
+// Function to handle the format specifier and print accordingly
+void	handle_format(char *format, int *print_count, va_list args)
+{
+	t_format_field	field;
+
+	field.specifier = ft_get_format_specifier(format);
+	ft_check_format_validity(format, &field);
+	ft_get_flags(format, &field);
+	ft_get_width(format, &field);
+	if (field.specifier == 's')
+		ft_get_string_precision(format, &field);
+	*print_count += ft_print_format(format, &field, args);
 }
 
 // Main printf function
@@ -177,7 +211,6 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (print_count);
-	// You may return the total number of characters printed
 }
 
 int	main(void)

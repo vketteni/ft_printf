@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:37:37 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/05 18:13:14 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/06 03:40:20 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,21 +46,16 @@
 #define true 1
 #define false 0
 
-typedef struct s_format_flag
-{
-	int				boolean_value;
-}					t_format_flag;
-
 typedef struct s_format_field
 {
-	int				width;
-	int				precision;
-	t_format_flag	left_justify;
-	t_format_flag	zero_padding;
-	t_format_flag	always_sign;
-	t_format_flag	alternative_form;
-	t_format_flag	starts_with_blank;
-}					t_format_field;
+	int	width;
+	int	precision;
+	int	left_justify;
+	int	zero_padding;
+	int	always_sign;
+	int	alternative_form;
+	int	starts_with_blank;
+}		t_format_field;
 
 // Function to print a single character
 void	print_char(char c)
@@ -100,32 +95,41 @@ void	handle_format(char **format, int *print_count, va_list args)
 
 	while (ft_is_flag(**format))
 	{
-        if (**format == '-')
-            field.left_justify.boolean_value = true;
-        else if (**format == '#')
-            field.alternative_form.boolean_value = true;
-        else if (**format == ' ')
-            field.starts_with_blank.boolean_value = true;
-        else if (**format == '0')
-            field.zero_padding.boolean_value = true;
+		if (**format == '-')
+			field.left_justify = true;
+		else if (**format == '#')
+			field.alternative_form = true;
+		else if (**format == ' ')
+			field.starts_with_blank = true;
+		else if (**format == '0')
+			field.zero_padding = true;
 		*format++;
 	}
-    field.width = ft_atoi(**format);
+	field.width = ft_atoi(**format);
 	while (ft_isdigit(**format))
-        *format++;
-    if (ft_is_precision(**format))
-        field.precision = ft_atoi(++(*format));
-    while (ft_isdigit(**format))
-        *format++;
-    if (**format == 'c')
-    {
+		*format++;
+	if (ft_is_precision(**format))
+		field.precision = ft_atoi(++(*format));
+	while (ft_isdigit(**format))
+		*format++;
+	if (**format == 'c')
+	{
 		print_char(va_arg(args, int));
 		*print_count++;
-    }
+	}
+	else if (**format == 's')
+		print_count += print_string(va_arg(args, char *));
+	else if (**format == 'p')
+		print_count += print_pointer(va_arg(args, void *));
+	else if (**format == 'd' || **format == 'i')
+		print_count += print_int(va_arg(args, int));
+	else if (**format == 'u')
+		print_count += print_unsigned(va_arg(args, unsigned int));
+	else if (**format == 'x')
+		print_count += print_hexa(va_arg(args, void *));
 	switch (**format)
 	{
 	case 'c':
-
 		break ;
 	case 's':
 		*print_count += print_string(va_arg(args, char *));

@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "format_validity.h": "c",
+        "stdarg.h": "c",
+        "format.h": "c"
+    }
+}

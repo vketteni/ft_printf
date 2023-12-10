@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:37:32 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/07 18:29:39 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/10 01:57:32 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ typedef struct s_format_field
 	int		flag_starts_with_blank;
 }			t_format_field;
 
-char		ft_get_specifier(char *format);
+t_format_field	*ft_get_specifier(char *format, t_format_field *field);
 
-void		ft_get_flags(char *format, t_format_field *field);
+t_format_field	*ft_get_flags(char *format, t_format_field *field);
 
-void		ft_get_width(char *format, t_format_field *field, va_list args);
+t_format_field	*ft_get_width(char *format, t_format_field *field, va_list args);
 
-void		ft_get_precision(char *format, t_format_field *field, va_list args);
+t_format_field	*ft_get_precision(char *format, t_format_field *field, va_list args);
 
 int			ft_check_validity(char *format, t_format_field *field);
 

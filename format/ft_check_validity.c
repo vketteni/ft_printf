@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_validity.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:44:00 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/07 18:17:21 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/09 23:54:40 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ int	ft_check_validity(char *format, t_format_field *field)
 	else if (field->specifier == 'u')
 		return (ft_check_uint_format(format));
 	else if (field->specifier == 'x')
-		return (ft_check_lchex_format(format));
+		return (ft_check_hexlc_format(format));
 	else if (field->specifier == 'X')
-		return (ft_check_uphex_format(format));
+		return (ft_check_hexuc_format(format));
+	else
+		return (0);
 }

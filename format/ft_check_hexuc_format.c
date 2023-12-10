@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_hexuc_format.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 18:28:23 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/07 18:28:43 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/09 23:57:37 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int    ft_check_hexuc_format(char *format)
 {
-    
+    return (1);
 }

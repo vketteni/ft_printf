@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_width.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:55:26 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/07 18:17:21 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/10 01:50:27 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "format.h"
 
-void	ft_get_width(char *format, t_format_field *field, va_list args)
+t_format_field	*ft_get_width(char *format, t_format_field *field, va_list args)
 {
     while (ft_is_flag(*format))
         format++;
     if (*format == '*')
         field->width = va_arg(args, int);
     else
-        field->width = ft_atoi(*format);  
-
+        field->width = ft_atoi(format);  
+    return (field);
 }

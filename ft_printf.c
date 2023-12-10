@@ -6,9 +6,10 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:37:37 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/09 08:25:03 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/10 02:07:45 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_print_char(char c)
@@ -45,18 +46,22 @@ int	ft_print_int(int num)
 
 int	ft_print_pointer(void *p)
 {
+	return (1);
 }
 
 int	ft_print_hexa_lowercase(unsigned int d)
 {
+	return (1);
 }
 
 int	ft_print_hexa_uppercase(unsigned int d)
 {
+	return (1);
 }
 
 int	ft_print_unsigned(unsigned int d)
 {
+	return (1);
 }
 
 int	ft_print_format (char *format, t_format_field *field, va_list args)
@@ -75,13 +80,13 @@ int	ft_print_format (char *format, t_format_field *field, va_list args)
 	else if (field->specifier == 'u')
 		count += ft_print_unsigned(va_arg(args, unsigned int));
 	else if (field->specifier == 'x')
-		count += ft_print_hexa_lowercase((unsigned int)va_arg(args, void *));
+		count += ft_print_hexa_lowercase(va_arg(args, unsigned int));
 	else if (field->specifier == 'X')
-		count += ft_print_hexa_uppercase((unsigned int)va_arg(args, void *));
+		count += ft_print_hexa_uppercase(va_arg(args, unsigned int));
 	return (count);
 }
 
-int	handle_format(char *format, int *count, va_list args)
+int	handle_format(const char *format, int *count, va_list args)
 {
 	t_format_field	field;
 
@@ -90,7 +95,7 @@ int	handle_format(char *format, int *count, va_list args)
 		*count += ft_print_char('%');
 		return (1);
 	}
-	field.specifier = ft_get_specifier(format);
+	ft_get_specifier(format, &field);
 	if (!ft_check_validity(format, &field))
 		return (0);
 	ft_get_flags(format, &field);
@@ -98,6 +103,7 @@ int	handle_format(char *format, int *count, va_list args)
 	if (field.specifier == 's')
 		ft_get_precision(format, &field, args);
 	*count += ft_print_format(format, &field, args);
+	return (1);
 }
 
 int	ft_printf(const char *format, ...)

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_flags.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:39:31 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/07 18:21:53 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/10 02:10:26 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "format.h"
 
-void	ft_get_flags(char *format, t_format_field *field)
+t_format_field	*ft_get_flags(char *format, t_format_field *field)
 {
 	while (ft_is_flag(*format))
 	{
@@ -26,4 +26,5 @@ void	ft_get_flags(char *format, t_format_field *field)
 			field->flag_zero_padding = true;
 		format++;
 	}
+	return (field);
 }

@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_specifer.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:02:35 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/07 18:17:21 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/10 01:54:29 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "format.h"
 
-char	ft_get_specifier(char *format)
+t_format_field	*ft_get_specifier(char *format, t_format_field *field)
 {
 	while (format && !ft_is_format_specifier(*format))
 		format++;
-	return (*format);
+	if (ft_is_format_specifier(*format))
+		field->specifier = *format;
+	return (field);
 }

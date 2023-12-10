@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_str_format.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 18:26:33 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/07 18:26:46 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/09 23:57:06 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int    ft_check_str_format(char *format)
 {
-    
+    return (1);
 }

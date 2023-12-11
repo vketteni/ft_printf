@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_char_format.c                             :+:      :+:    :+:   */
+/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 13:57:48 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/10 00:08:39 by vincentkett      ###   ########.fr       */
+/*   Created: 2023/12/11 20:11:12 by vincentkett       #+#    #+#             */
+/*   Updated: 2023/12/11 20:13:36 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "format.h"
-
-int    ft_check_char_format(const char *format)
+int	ft_print_ptr(void *p)
 {
-    return (1);
+    
 }

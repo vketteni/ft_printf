@@ -6,65 +6,13 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:37:37 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/11 01:37:05 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/11 20:19:13 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_char(char c)
-{
-	return (write(1, &c, 1));
-}
-
-int	ft_print_string(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (*(str + i))
-	{
-		ft_print_char(*(str + i));
-		i++;
-	}
-	return (i);
-}
-
-int	ft_print_int(int num)
-{
-	int i;
-
-	i = 0;
-	ft_putnbr_fd(num, 1);
-	while (num)
-	{
-		num /= 10;
-		i++;
-	}
-	return (i);
-}
-
-int	ft_print_pointer(void *p)
-{
-	return (1);
-}
-
-int	ft_print_hexa_lowercase(unsigned int d)
-{
-	return (1);
-}
-
-int	ft_print_hexa_uppercase(unsigned int d)
-{
-	return (1);
-}
-
-int	ft_print_unsigned(unsigned int d)
-{
-	return (1);
-}
-
-int	ft_print_format (const char *format, t_format_field *field, va_list args)
+int	ft_print_format(const char *format, t_format_field *field, va_list args)
 {
 	int	count;
 
@@ -72,17 +20,17 @@ int	ft_print_format (const char *format, t_format_field *field, va_list args)
 	if (field->specifier == 'c')
 		count += ft_print_char(va_arg(args, int));
 	else if (field->specifier == 's')
-		count += ft_print_string(va_arg(args, char *));
+		count += ft_print_str(va_arg(args, char *));
 	else if (field->specifier == 'p')
-		count += ft_print_pointer(va_arg(args, void *));
+		count += ft_print_ptr(va_arg(args, void *));
 	else if (field->specifier == 'd' || field->specifier == 'i')
 		count += ft_print_int(va_arg(args, int));
 	else if (field->specifier == 'u')
-		count += ft_print_unsigned(va_arg(args, unsigned int));
+		count += ft_print_int_unsigned(va_arg(args, unsigned int));
 	else if (field->specifier == 'x')
-		count += ft_print_hexa_lowercase(va_arg(args, unsigned int));
+		count += ft_print_hex_lc(va_arg(args, unsigned int));
 	else if (field->specifier == 'X')
-		count += ft_print_hexa_uppercase(va_arg(args, unsigned int));
+		count += ft_print_hex_uc(va_arg(args, unsigned int));
 	return (count);
 }
 
@@ -126,11 +74,10 @@ int	ft_printf(const char *format, ...)
 				return (count);
 			}
 			while (!ft_is_format_specifier(*format))
-				format++;	
+				format++;
 		}
 		format++;
 	}
 	va_end(args);
 	return (count);
 }
-

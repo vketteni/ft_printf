@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_hexlc_format.c                            :+:      :+:    :+:   */
+/*   ft_print_hex_lc.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 18:26:00 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/09 23:57:43 by vincentkett      ###   ########.fr       */
+/*   Created: 2023/12/11 20:13:52 by vincentkett       #+#    #+#             */
+/*   Updated: 2023/12/11 20:14:03 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "format.h"
-
-int    ft_check_hexlc_format(const char *format)
+int	ft_print_hex_lc(unsigned int d)
 {
-    return (1);
+    
 }

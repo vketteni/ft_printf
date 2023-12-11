@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_int_format.c                              :+:      :+:    :+:   */
+/*   ft_print_hex_uc.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 18:24:48 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/09 23:57:29 by vincentkett      ###   ########.fr       */
+/*   Created: 2023/12/11 20:14:05 by vincentkett       #+#    #+#             */
+/*   Updated: 2023/12/11 20:14:21 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "format.h"
-
-int    ft_check_int_format(const char *format)
+int    ft_print_hex_uc(unsigned int d)
 {
-    return (1);
+    
 }

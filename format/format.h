@@ -6,7 +6,7 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:37:32 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/10 01:57:32 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/11 19:49:33 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,5 @@ t_format_field	*ft_get_flags(const char *format, t_format_field *field);
 t_format_field	*ft_get_width(const char *format, t_format_field *field, va_list args);
 
 t_format_field	*ft_get_precision(const char *format, t_format_field *field, va_list args);
-
-int			ft_check_validity(const char *format, t_format_field *field);
-
-int			ft_check_char_format(const char *format);
-
-int			ft_check_int_format(const char *format);
-
-int			ft_check_str_format(const char *format);
-
-int			ft_check_uint_format(const char *format);
-
-int			ft_check_hexlc_format(const char *format);
-
-int			ft_check_hexuc_format(const char *format);
-
-int			ft_check_ptr_format(const char *format);
 
 #endif

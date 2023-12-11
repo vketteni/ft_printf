@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_hexuc_format.c                            :+:      :+:    :+:   */
+/*   ft_print_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 18:28:23 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/09 23:57:37 by vincentkett      ###   ########.fr       */
+/*   Created: 2023/12/11 20:12:55 by vincentkett       #+#    #+#             */
+/*   Updated: 2023/12/11 20:15:32 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "format.h"
-
-int    ft_check_hexuc_format(const char *format)
+int	ft_print_int(int num)
 {
-    return (1);
+	int	count;
+
+	ft_putnbr_fd(num, 1);
+	count = 0;
+	while (num)
+	{
+		num /= 10;
+		count++;
+	}
+	return (count);
 }

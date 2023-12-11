@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_uint_format.c                             :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 18:26:50 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/09 23:55:41 by vincentkett      ###   ########.fr       */
+/*   Created: 2023/12/11 20:12:29 by vincentkett       #+#    #+#             */
+/*   Updated: 2023/12/11 20:16:07 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "format.h"
-
-int    ft_check_uint_format(const char *format)
+int	ft_print_char(char c)
 {
-    return (1); 
+	return (write(1, &c, 1));
 }

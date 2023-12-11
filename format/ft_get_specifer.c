@@ -12,7 +12,7 @@
 
 #include "format.h"
 
-t_format_field	*ft_get_specifier(char *format, t_format_field *field)
+t_format_field	*ft_get_specifier(const char *format, t_format_field *field)
 {
 	while (format && !ft_is_format_specifier(*format))
 		format++;

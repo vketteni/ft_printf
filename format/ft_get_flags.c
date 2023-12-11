@@ -12,7 +12,7 @@
 
 #include "format.h"
 
-t_format_field	*ft_get_flags(char *format, t_format_field *field)
+t_format_field	*ft_get_flags(const char *format, t_format_field *field)
 {
 	while (ft_is_flag(*format))
 	{

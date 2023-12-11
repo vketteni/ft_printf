@@ -12,7 +12,7 @@
 
 #include "format.h"
 
-int	ft_check_validity(char *format, t_format_field *field)
+int	ft_check_validity(const char *format, t_format_field *field)
 {
 	if (field->specifier == 'c')
 		return (ft_check_char_format(format));

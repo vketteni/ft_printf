@@ -12,7 +12,7 @@
 
 #include "format.h"
 
-int    ft_check_uint_format(char *format)
+int    ft_check_uint_format(const char *format)
 {
     return (1); 
 }

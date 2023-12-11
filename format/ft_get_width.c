@@ -12,7 +12,7 @@
 
 #include "format.h"
 
-t_format_field	*ft_get_width(char *format, t_format_field *field, va_list args)
+t_format_field	*ft_get_width(const char *format, t_format_field *field, va_list args)
 {
     while (ft_is_flag(*format))
         format++;

@@ -6,7 +6,7 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:37:37 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/10 02:07:45 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/11 01:37:05 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_print_string(char *str)
 	i = 0;
 	while (*(str + i))
 	{
-		ft_print_char(*str);
+		ft_print_char(*(str + i));
 		i++;
 	}
 	return (i);
@@ -134,8 +134,3 @@ int	ft_printf(const char *format, ...)
 	return (count);
 }
 
-int	main(void)
-{
-	ft_printf("Hello, %s! The answer is %d.\n", "world", 42);
-	return (0);
-}

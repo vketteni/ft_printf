@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:45:09 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/07 18:18:53 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/11 01:39:40 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@
 #define true 1
 #define false 0
 
+int	ft_printf(const char *format, ...);
 
 #endif

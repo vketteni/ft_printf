@@ -53,13 +53,17 @@ int	main(void)
 	char	c;
 	char	*s;
 	int		d;
+	void	*p;
 
+	p = &c;
 	c = 'c';
 	s = "world";
 	d = 42;
 
-	test_single_flag("%c\n", &c);
-    test_single_flag("%d\n", &d);
-    test_single_flag("%s\n", s);
+	printf("%ld\n", (long)p);
+	printf("%p\n", p);
+	// test_single_flag("%c\n", &c);
+    // test_single_flag("%d\n", &d);
+    // test_single_flag("%s\n", s);
 	return (0);
 }

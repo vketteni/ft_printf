@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:36:10 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/01 13:44:10 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/12 22:01:20 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 #include <limits.h>
 
@@ -52,7 +53,7 @@ int main(void)
 
 	// int	ft_atoi(const char *nptr)
 	// Testing string with escape characters in front of the digits.
-	if (true)
+	if (1)
 	{
 		char whitespace[] = "\n\t\v\r\f 1";
 		ft_strlcpy(nbr_buffer, whitespace, buffer_size);
@@ -65,7 +66,7 @@ int main(void)
 	}
 
 	// Testing negative number
-	if (true)
+	if (1)
 	{
 		char negative[] = "-42";
 		ft_strlcpy(nbr_buffer, negative, buffer_size);
@@ -77,7 +78,7 @@ int main(void)
 	}
 
 	// Testing positive number
-	if (true)
+	if (1)
 	{
 		char positive[] = "123";
 		ft_strlcpy(nbr_buffer, positive, buffer_size);
@@ -89,7 +90,7 @@ int main(void)
 	}
 
 	// Testing integer min
-	if (true)
+	if (1)
 	{
 		char int_min[] = "-2147483648";
 		ft_strlcpy(nbr_buffer, int_min, buffer_size);
@@ -101,7 +102,7 @@ int main(void)
 	}
 
 	// Testing integer max
-	if (true)
+	if (1)
 	{
 		char int_max[] = "2147483647";
 		ft_strlcpy(nbr_buffer, int_max, buffer_size);
@@ -113,7 +114,7 @@ int main(void)
 	}
 
 	// Testing bad char at the start
-	if (true)
+	if (1)
 	{
 		char bad_start[] = "abc123";
 		ft_strlcpy(nbr_buffer, bad_start, buffer_size);
@@ -125,7 +126,7 @@ int main(void)
 	}
 
 	// Testing bad char after whitespace
-	if (true)
+	if (1)
 	{
 		char bad_whitespace[] = "  a456";
 		ft_strlcpy(nbr_buffer, bad_whitespace, buffer_size);
@@ -137,7 +138,7 @@ int main(void)
 	}
 
 	// Testing bad char after sign
-	if (true)
+	if (1)
 	{
 		char bad_sign[] = "+a789";
 		ft_strlcpy(nbr_buffer, bad_sign, buffer_size);
@@ -149,7 +150,7 @@ int main(void)
 	}
 
 	// Testing bad char after number
-	if (true)
+	if (1)
 	{
 		char bad_after_number[] = "123x";
 		ft_strlcpy(nbr_buffer, bad_after_number, buffer_size);

@@ -6,9 +6,11 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 20:12:29 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/11 20:16:07 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/12 20:51:40 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "print.h"
 
 int	ft_print_char(char c)
 {

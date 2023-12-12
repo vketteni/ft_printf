@@ -6,14 +6,15 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:37:32 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/11 19:49:33 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/12 21:58:23 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORMAT_H
 # define FORMAT_H
 
-# include "../ft_printf.h"
+# include <stdarg.h>
+# include "../libft/libft.h"
 # include "../util/util.h"
 
 typedef struct s_format_field

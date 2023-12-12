@@ -6,32 +6,57 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 20:13:52 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/12 00:18:01 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/12 21:46:54 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "print.h"
 
-static void ft_print_hex(long long int hexa, int uc, int fd)
+int ft_puthex_fd(unsigned int hex, int uppercase, int fd)
 {
-    ft_print_char('0');
-    if (uc)
-        ft_print_char('x');
-    else 
-        ft_print_char('X');
-    
-    ft_print_hex_rekursion(hexa, false, 1);
-}
+    int     case_constant;
 
-static void ft_print_hex_rekursion(long long int hexa, int uc, int fd)
-{
-    if (hexa > 15)
+    if (uppercase)
+        case_constant = 'a' - 'A';
+    else
+        case_constant = 0;
+    if (hex < 10)
     {
-        ft_print_hex_rekursion(hexa / 16, uc, fd);
-        
+        ft_putchar_fd(hex + '0', 1);
+        return (1);
     }
     else
     {
-
+        ft_putchar_fd(hex - 10 + 'a' - case_constant, 1);
+        return (1);
     }
 }
+
+static int ft_print_hex_rekursion(long long int hexa, int uppercase)
+{
+    int count = 0;
+    if (hexa > 15)
+    {
+        count += ft_print_hex_rekursion(hexa / 16, uppercase);
+        count += ft_puthex_fd(hexa % 16, uppercase, 1);
+    }
+    else
+        count += ft_puthex_fd(hexa, uppercase, 1);
+    return count;
+}
+
+int ft_print_hex(long long int hexa, int uppercase)
+{
+    int count = 0;
+    count += ft_print_char('0');
+    if (!uppercase)
+        count += ft_print_char('x');
+    else 
+        count += ft_print_char('X');
+    
+    count += ft_print_hex_rekursion(hexa, uppercase);
+    return count;
+}
+
+
+

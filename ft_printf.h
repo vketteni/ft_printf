@@ -6,7 +6,7 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:45:09 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/11 01:39:40 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/12 21:58:40 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <unistd.h>
 # include "format/format.h"
 # include "libft/libft.h"
+# include "print/print.h"
+# include "checks/checks.h"
 
-#define true 1
-#define false 0
 
 int	ft_printf(const char *format, ...);
 

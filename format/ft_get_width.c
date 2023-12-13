@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_width.c                                     :+:      :+:    :+:   */
+/*   ft_get_min_width.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,13 +12,13 @@
 
 #include "format.h"
 
-t_format_field	*ft_get_width(const char *format, t_format_field *field, va_list args)
+t_format_field	*ft_get_min_width(const char *format, t_format_field *field, va_list args)
 {
     while (ft_is_flag(*format))
         format++;
     if (*format == '*')
-        field->width = va_arg(args, int);
+        field->min_width = va_arg(args, int);
     else
-        field->width = ft_atoi(format);  
+        field->min_width = ft_atoi(format);  
     return (field);
 }

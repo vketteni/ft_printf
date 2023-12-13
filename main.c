@@ -6,7 +6,7 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 01:34:34 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/13 01:23:47 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/13 20:57:06 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,27 +78,36 @@ int	main(void)
 	char			*s;
     char            c;
 	void			*p;
-	long long int	x;
-	long long int	X;
+	unsigned int	x;
+	unsigned int	X;
 
 	c = 'c';
 	d = 42;
 	s = "world";
 	u = (unsigned int)d;
 	p = &c;
-	x = (long long int)p;
+	x = (unsigned int)d;
 	X = x;
 
-	// printf("%ld\n", (long)p);
+	// printf("'%010x'\n", x);
 	// printf("%p\n", p);
-	test_single_flag("%c\n", &c);
-    test_single_flag("%d\n", &d);
-    test_single_flag("%u\n", &u);
-    test_single_flag("%s\n", s);
-    test_single_flag("%p\n", p);
-    test_single_flag("%x\n", &x);
-    test_single_flag("%X\n", &X);
+	// test_single_flag("%c\n", &c);
+    // test_single_flag("%d\n", &d);
+    // test_single_flag("%u\n", &u);
+    // test_single_flag("%s\n", s);
+    // test_single_flag("%p\n", p);
+    // test_single_flag("%x\n", &x);
+    // test_single_flag("%X\n", &X);
 	return (0);
 }
 
 // cc main.c format/*c checks/*.c print/*.c util/*.c libft/*.c ft_printf.c 
+
+	// int		min_width;
+	// int		precision;
+	// char	specifier;
+	// int		flag_left_justify;
+	// int		flag_zero_padding;
+	// int		flag_always_sign;
+	// int		flag_alternative_form;
+	// int		flag_starts_with_blank;

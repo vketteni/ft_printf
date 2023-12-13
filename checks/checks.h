@@ -6,7 +6,7 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 19:12:15 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/12 21:58:12 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/13 18:04:07 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ int			ft_check_str_format(const char *format);
 
 int			ft_check_uint_format(const char *format);
 
-int			ft_check_hexlc_format(const char *format);
-
-int			ft_check_hexuc_format(const char *format);
+int			ft_check_hex_format(const char *format);
 
 int			ft_check_ptr_format(const char *format);
 

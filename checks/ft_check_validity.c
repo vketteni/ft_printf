@@ -6,7 +6,7 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:44:00 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/13 04:37:12 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/13 19:17:17 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ int	ft_check_validity(const char *format, t_format_field *field)
 		return (ft_check_int_format(format));
 	else if (field->specifier == 'u')
 		return (ft_check_uint_format(format));
-	else if (field->specifier == 'x')
-		return (ft_check_hexlc_format(format));
-	else if (field->specifier == 'X')
-		return (ft_check_hexuc_format(format));
+	else if (field->specifier == 'x' || field->specifier == 'X')
+		return (ft_check_hex_format(format));
 	else
 		return (0);
 }

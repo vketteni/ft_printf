@@ -6,7 +6,7 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 20:56:56 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/13 06:05:08 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/13 19:39:39 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_print_format(t_format_field *field, va_list args)
 	int	count;
 
 	count = 0;
+	// if (!(field->flag_left_justify))
+	// 	count += ft_print_field_padding(field);
 	if (field->specifier == 'c')
 		count += ft_print_char(va_arg(args, int));
 	else if (field->specifier == 's')
@@ -24,12 +26,13 @@ int	ft_print_format(t_format_field *field, va_list args)
 	else if (field->specifier == 'p')
 		count += ft_print_ptr(va_arg(args, void *));
 	else if (field->specifier == 'd' || field->specifier == 'i')
-		count += ft_print_int(va_arg(args, int));
+		count += ft_print_int(va_arg(args, int), field->flag_always_sign);
 	else if (field->specifier == 'u')
 		count += ft_print_int_unsigned(va_arg(args, unsigned int));
-	else if (field->specifier == 'x')
-		count += ft_print_hex(va_arg(args, unsigned int), 0);
-	else if (field->specifier == 'X')
-		count += ft_print_hex(va_arg(args, unsigned int), 1);
+	else if (field->specifier == 'x' || field->specifier == 'X')
+		count += ft_print_hex(
+			va_arg(args, unsigned int), field->flag_alternative_form);
+	// if (field->flag_left_justify)
+	// 	count += ft_print_field_padding(field);
 	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:37:32 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/12 21:58:23 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/13 19:43:33 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 typedef struct s_format_field
 {
-	int		width;
+	int		min_width;
 	int		precision;
 	char	specifier;
 	int		flag_left_justify;
@@ -33,7 +33,7 @@ t_format_field	*ft_get_specifier(const char *format, t_format_field *field);
 
 t_format_field	*ft_get_flags(const char *format, t_format_field *field);
 
-t_format_field	*ft_get_width(const char *format, t_format_field *field, va_list args);
+t_format_field	*ft_get_min_width(const char *format, t_format_field *field, va_list args);
 
 t_format_field	*ft_get_precision(const char *format, t_format_field *field, va_list args);
 

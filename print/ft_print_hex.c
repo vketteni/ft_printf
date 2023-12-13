@@ -6,7 +6,7 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 20:13:52 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/12 21:46:54 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/13 06:07:38 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int ft_puthex_fd(unsigned int hex, int uppercase, int fd)
         case_constant = 0;
     if (hex < 10)
     {
-        ft_putchar_fd(hex + '0', 1);
+        ft_putchar_fd(hex + '0', fd);
         return (1);
     }
     else
     {
-        ft_putchar_fd(hex - 10 + 'a' - case_constant, 1);
+        ft_putchar_fd(hex - 10 + 'a' - case_constant, fd);
         return (1);
     }
 }

@@ -1,37 +1,50 @@
-# Makefile for ft_printf
-
-NAME = ft_printf
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
-SRCS = ft_printf.c  # Add your ft_printf source files here
+
+CFLAGS = -Wall -Werror -Wextra
+
+SRCS = ft_printf.c  \
+       main.c print/ft_print_char.c print/ft_print_format.c \
+       print/ft_print_hex.c print/ft_print_int_unsigned.c  \
+       print/ft_print_int.c print/ft_print_ptr.c print/ft_print_str.c \
+       util/ft_is_flag.c util/ft_is_format_specifier.c \
+       format/ft_get_flags.c format/ft_get_precision.c  \
+       format/ft_get_specifer.c format/ft_get_width.c \
+       checks/ft_check_char_format.c checks/ft_check_hexlc_format.c  \
+       checks/ft_check_hexuc_format.c checks/ft_check_int_format.c  \
+       checks/ft_check_ptr_format.c checks/ft_check_str_format.c  \
+       checks/ft_check_uint_format.c checks/ft_check_validity.c
+
 OBJS = $(SRCS:.c=.o)
 
-# Path to the libft directory
+NAME = libftprintf.a
+
+LIBFT = libft.a
 LIBFT_DIR = ./libft
+LIBFT_PATH = $(LIBFT_DIR)/$(LIBFT)
 
-# libft library and includes
-LIBFT = $(LIBFT_DIR)/libft.a
-LIBFT_INC = -I$(LIBFT_DIR)
-LIBFT_LINK = -L$(LIBFT_DIR) -lft
+all: $(LIBFT) $(NAME)
 
-# Rule to compile libft library
-$(LIBFT):
-    @$(MAKE) -C $(LIBFT_DIR)
-
-# Rule to compile ft_printf project
-$(NAME): $(LIBFT) $(OBJS)
-    $(CC) $(CFLAGS) $(LIBFT_INC) -o $@ $(OBJS) $(LIBFT_LINK)
-
-all: $(NAME)
+bonus: $(LIBFT) $(NAME)
 
 clean:
-    @$(MAKE) -C $(LIBFT_DIR) clean
-    rm -f $(OBJS)
+	make clean -C $(LIBFT_DIR)
+	rm -f $(OBJS)
 
 fclean: clean
-    @$(MAKE) -C $(LIBFT_DIR) fclean
-    rm -f $(NAME)
+	make fclean -C $(LIBFT_DIR)
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+$(NAME): $(OBJS)
+	cp $(LIBFT_PATH) $(NAME)
+	ar -rcv $@ $<
+
+$(LIBFT):
+	make -C $(LIBFT_DIR)
+
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(LIBFT_DIR)
+
+.PHONY: all clean fclean re bonus 

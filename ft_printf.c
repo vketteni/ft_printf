@@ -6,7 +6,7 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:37:37 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/12 20:57:32 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/13 06:12:51 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	handle_format(const char *format, int *count, va_list args)
 	ft_get_width(format, &field, args);
 	if (field.specifier == 's')
 		ft_get_precision(format, &field, args);
-	*count += ft_print_format(format, &field, args);
+	*count += ft_print_format(&field, args);
 	return (1);
 }
 

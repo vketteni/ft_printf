@@ -6,13 +6,13 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 20:56:56 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/12 21:48:12 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/13 06:05:08 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "print.h"
 
-int	ft_print_format(const char *format, t_format_field *field, va_list args)
+int	ft_print_format(t_format_field *field, va_list args)
 {
 	int	count;
 

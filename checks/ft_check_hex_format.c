@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_hex_format.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
+/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 18:26:00 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/13 20:36:55 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/15 14:53:03 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,11 @@ static int ft_check_flag_combination(const char *format)
 {
 	int	flag_zero_padding;
 	int	flag_left_justify;
-	int	flag_alternative_form;
 
 	while (ft_is_flag(*format))
 	{
 		if (*format == '0')
 			flag_zero_padding = 1;
-		if (*format == '#')
-			flag_alternative_form = 1;
 		if (*format == '-')
 			flag_left_justify = 1;
 		if (flag_left_justify && flag_zero_padding)

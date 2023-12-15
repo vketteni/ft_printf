@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
+/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 19:50:22 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/13 20:50:48 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/15 12:13:48 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int	ft_print_int_unsigned(unsigned int d);
 
 int	ft_print_format(t_format_field *field, va_list args);
 
-int	ft_print_char(char c);
+int	ft_print_padding(t_format_field *field, va_list args);
 
 #endif

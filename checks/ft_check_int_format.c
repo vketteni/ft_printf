@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_int_format.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
+/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 18:24:48 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/13 20:33:29 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/15 14:52:28 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,14 @@ int    ft_check_int_format(const char *format)
     }
 	while (ft_isdigit(*format))
 		format++;
-	if (*format == '.')
+	if (*format == 'd' || *format == 'i')
+		return (1);
+	else if (*format == '.')
 		format++;
-	else if (*format != 'd' || *format != 'i')
-		return (0);
 	while (ft_isdigit(*format))
 		format++;
-	if (*format != 'd' || *format != 'i')
-		return (0);
-    return (1);
+	if (*format == 'd' || *format == 'i')
+		return (1);
+    return (0);
 }
 

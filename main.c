@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
+/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 01:34:34 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/13 20:57:06 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/15 14:00:07 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ void	test_single_flag(char *format, void *arg)
 	int				d;
 	unsigned int	u;
 	char			*s;
-    char            c;
+	char			c;
 	void			*p;
 	long long int	x;
 	long long int	X;
 
 	if (format != NULL)
 	{
-		if (format[1] == 'd' )
+		if (format[1] == 'd')
 		{
 			d = *((int *)arg);
 			ft_printf("Received integer: %d\n", d);
 		}
-		else if (format[1] == 'u' )
+		else if (format[1] == 'u')
 		{
 			u = *((unsigned int *)arg);
 			ft_printf("Received unsigned integer: %u\n", u);
@@ -73,41 +73,33 @@ void	test_single_flag(char *format, void *arg)
 
 int	main(void)
 {
-	int				d;
-	unsigned int	u;
-	char			*s;
-    char            c;
-	void			*p;
-	unsigned int	x;
-	unsigned int	X;
+	// int				d;
+	// unsigned int	u;
+	// char			*s;
+	// char			c;
+	// void			*p;
+	// unsigned int	x;
+	// unsigned int	X;
 
-	c = 'c';
-	d = 42;
-	s = "world";
-	u = (unsigned int)d;
-	p = &c;
-	x = (unsigned int)d;
-	X = x;
-
+	// c = 'c';
+	// d = 42;
+	// s = "world";
+	// u = (unsigned int)d;
+	// p = &c;
+	// x = (unsigned int)d;
+	// X = x;
+	
 	// printf("'%010x'\n", x);
 	// printf("%p\n", p);
+	// ft_printf("'%05d'\n", d);
 	// test_single_flag("%c\n", &c);
-    // test_single_flag("%d\n", &d);
-    // test_single_flag("%u\n", &u);
-    // test_single_flag("%s\n", s);
-    // test_single_flag("%p\n", p);
-    // test_single_flag("%x\n", &x);
-    // test_single_flag("%X\n", &X);
+	// test_single_flag("%d\n", &d);
+	// test_single_flag("%u\n", &u);
+	// test_single_flag("%s\n", s);
+	// test_single_flag("%p\n", p);
+	// test_single_flag("%x\n", &x);
+	// test_single_flag("%X\n", &X);
 	return (0);
 }
 
-// cc main.c format/*c checks/*.c print/*.c util/*.c libft/*.c ft_printf.c 
-
-	// int		min_width;
-	// int		precision;
-	// char	specifier;
-	// int		flag_left_justify;
-	// int		flag_zero_padding;
-	// int		flag_always_sign;
-	// int		flag_alternative_form;
-	// int		flag_starts_with_blank;
+// cc main.c format/*c checks/*.c print/*.c util/*.c libft/*.c ft_printf.c

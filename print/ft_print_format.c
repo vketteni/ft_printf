@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_format.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
+/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 20:56:56 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/13 19:39:39 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/15 12:25:45 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 int	ft_print_format(t_format_field *field, va_list args)
 {
 	int	count;
+	va_list	args_copy;
 
+	va_copy(args_copy, args);
 	count = 0;
-	// if (!(field->flag_left_justify))
-	// 	count += ft_print_field_padding(field);
+	if (!(field->flag_left_justify))
+		count += ft_print_padding(field, args_copy);
 	if (field->specifier == 'c')
 		count += ft_print_char(va_arg(args, int));
 	else if (field->specifier == 's')
@@ -32,7 +34,7 @@ int	ft_print_format(t_format_field *field, va_list args)
 	else if (field->specifier == 'x' || field->specifier == 'X')
 		count += ft_print_hex(
 			va_arg(args, unsigned int), field->flag_alternative_form);
-	// if (field->flag_left_justify)
-	// 	count += ft_print_field_padding(field);
+	if (field->flag_left_justify)
+		count += ft_print_padding(field, args_copy);
 	return (count);
 }

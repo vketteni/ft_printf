@@ -8,11 +8,12 @@ SRCS = ft_printf.c  \
        print/ft_print_int.c print/ft_print_ptr.c print/ft_print_str.c \
        util/ft_is_flag.c util/ft_is_format_specifier.c \
        format/ft_get_flags.c format/ft_get_precision.c  \
-       format/ft_get_specifer.c format/ft_get_min_width.c \
-       checks/ft_check_char_format.c checks/ft_check_hexlc_format.c  \
-       checks/ft_check_hexuc_format.c checks/ft_check_int_format.c  \
+       format/ft_get_specifier.c format/ft_get_min_width.c \
+       checks/ft_check_char_format.c checks/ft_check_hex_format.c  \
+       checks/ft_check_int_format.c  \
        checks/ft_check_ptr_format.c checks/ft_check_str_format.c  \
-       checks/ft_check_uint_format.c checks/ft_check_validity.c
+       checks/ft_check_uint_format.c checks/ft_check_validity.c \
+       format/ft_get_min_width.c
 
 OBJS = $(SRCS:.c=.o)
 

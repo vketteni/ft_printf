@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
+/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:37:37 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/13 19:41:44 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/15 15:01:27 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-
-
-int	handle_format(const char *format, int *count, va_list args)
+static int	ft_process_format_specifier(const char *format, int *count, va_list args)
 {
 	t_format_field	field;
 
@@ -48,7 +46,7 @@ int	ft_printf(const char *format, ...)
 		else
 		{
 			format++;
-			if (handle_format(format, &count, args) == 0)
+			if (ft_process_format_specifier(format, &count, args) == 0)
 			{
 				va_end(args);
 				return (count);

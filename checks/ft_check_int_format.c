@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_int_format.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 18:24:48 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/15 14:52:28 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/16 01:48:11 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checks.h"
 
-static int ft_check_flag_combination(const char *format)
+static int	ft_check_flag_combination(const char *format)
 {
 	int	flag_zero_padding;
-	int flag_always_sign;
+	int	flag_always_sign;
 	int	flag_left_justify;
-	int flag_starts_with_blank;
+	int	flag_starts_with_blank;
 
 	while (ft_is_flag(*format))
 	{
@@ -30,25 +30,24 @@ static int ft_check_flag_combination(const char *format)
 		if (*format == ' ')
 			flag_starts_with_blank = 1;
 		if (flag_always_sign && flag_starts_with_blank)
-			return (0); 
+			return (0);
 		if (flag_left_justify && flag_zero_padding)
 			return (0);
-			
 		format++;
 	}
 	return (1);
 }
 
-int    ft_check_int_format(const char *format)
+int	ft_check_int_format(const char *format)
 {
 	if (!ft_check_flag_combination(format))
 		return (0);
-    while (ft_is_flag(*format))
+	while (ft_is_flag(*format))
 	{
-        if (*format == '#')
-            return (0);
-        format++;
-    }
+		if (*format == '#')
+			return (0);
+		format++;
+	}
 	while (ft_isdigit(*format))
 		format++;
 	if (*format == 'd' || *format == 'i')
@@ -59,6 +58,5 @@ int    ft_check_int_format(const char *format)
 		format++;
 	if (*format == 'd' || *format == 'i')
 		return (1);
-    return (0);
+	return (0);
 }
-

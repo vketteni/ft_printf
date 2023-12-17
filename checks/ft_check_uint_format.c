@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_uint_format.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 18:26:50 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/15 14:53:39 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/16 01:47:10 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checks.h"
 
-static int ft_check_flag_combination(const char *format)
+static int	ft_check_flag_combination(const char *format)
 {
 	int	flag_zero_padding;
 	int	flag_left_justify;
@@ -30,16 +30,16 @@ static int ft_check_flag_combination(const char *format)
 	return (1);
 }
 
-int    ft_check_uint_format(const char *format)
+int	ft_check_uint_format(const char *format)
 {
 	if (!ft_check_flag_combination(format))
 		return (0);
-    while (ft_is_flag(*format))
+	while (ft_is_flag(*format))
 	{
-        if (*format == '#' || *format == '+')
-            return (0);
-        format++;
-    }
+		if (*format == '#' || *format == '+')
+			return (0);
+		format++;
+	}
 	while (ft_isdigit(*format))
 		format++;
 	if (*format == '.')
@@ -50,5 +50,5 @@ int    ft_check_uint_format(const char *format)
 		format++;
 	if (*format != 'u')
 		return (0);
-    return (1);
+	return (1);
 }

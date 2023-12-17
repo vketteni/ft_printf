@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_format.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 20:56:56 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/15 12:25:45 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/16 02:11:10 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_print_format(t_format_field *field, va_list args)
 {
-	int	count;
+	int		count;
 	va_list	args_copy;
 
 	va_copy(args_copy, args);
@@ -32,8 +32,8 @@ int	ft_print_format(t_format_field *field, va_list args)
 	else if (field->specifier == 'u')
 		count += ft_print_int_unsigned(va_arg(args, unsigned int));
 	else if (field->specifier == 'x' || field->specifier == 'X')
-		count += ft_print_hex(
-			va_arg(args, unsigned int), field->flag_alternative_form);
+		count += ft_print_hex(va_arg(args, unsigned int),
+				field->flag_alternative_form);
 	if (field->flag_left_justify)
 		count += ft_print_padding(field, args_copy);
 	return (count);

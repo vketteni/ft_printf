@@ -1,0 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c_                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/11 01:34:34 by vincentkett       #+#    #+#             */
+/*   Updated: 2023/12/16 01:53:48 by vincentkett      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+#include <stdio.h>
+
+int	main(void)
+{
+	char			c = 'c';
+	int				d = 42;
+	char			*s = "world";
+	unsigned int	u = (unsigned int)d;
+	void			*p = &c;
+	unsigned int	x = (unsigned int)d;
+	unsigned int	X = x;
+
+	char format[] = "'%010x'\n";
+	printf("printf return value:\t%5d\n"
+	, printf(format, d));
+	ft_printf("ft_printf return value:\t%5d\n"
+	, ft_printf(format, d));
+	return (0);
+}
+
+// cc main.c format/*c checks/*.c print/*.c util/*.c libft/*.c ft_printf.c

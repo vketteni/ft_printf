@@ -6,7 +6,7 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 20:11:12 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/12 21:55:54 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/16 02:10:19 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int	ft_print_ptr(void *p)
 {
-    long long int   ptr;
+	long long int	ptr;
 
-    ptr = (long long int)p;
-    return (ft_print_hex(ptr, 0));
+	ptr = (long long int)p;
+	return (ft_print_hex(ptr, 0));
 }
-

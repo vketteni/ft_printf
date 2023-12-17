@@ -1,51 +1,43 @@
-CC = cc
-
-CFLAGS = -Wall -Werror -Wextra
-
-SRCS = ft_printf.c  \
-       main.c print/ft_print_char.c print/ft_print_format.c \
-       print/ft_print_hex.c print/ft_print_int_unsigned.c  \
-       print/ft_print_int.c print/ft_print_ptr.c print/ft_print_str.c \
-       util/ft_is_flag.c util/ft_is_format_specifier.c \
-       format/ft_get_flags.c format/ft_get_precision.c  \
-       format/ft_get_specifier.c format/ft_get_min_width.c \
-       checks/ft_check_char_format.c checks/ft_check_hex_format.c  \
-       checks/ft_check_int_format.c  \
-       checks/ft_check_ptr_format.c checks/ft_check_str_format.c  \
-       checks/ft_check_uint_format.c checks/ft_check_validity.c \
-       format/ft_get_min_width.c
+SRCS = ft_is_format_specifier.c \
+	ft_printf.c \
+	ft_is_flag.c \
+	ft_check_char_format.c \
+	ft_check_hex_format.c \
+	ft_check_uint_format.c \
+	ft_check_ptr_format.c \
+	ft_check_str_format.c \
+	ft_check_validity.c \
+	ft_check_int_format.c \
+	ft_print_int.c \
+	ft_print_format.c \
+	ft_print_padding.c \
+	ft_print_ptr.c \
+	ft_print_str.c \
+	ft_print_char.c \
+	ft_print_int_unsigned.c \
+	ft_print_hex.c \
+	ft_get_specifer.c \
+	ft_get_flags.c \
+	ft_get_precision.c \
+	ft_get_min_width.c \
 
 OBJS = $(SRCS:.c=.o)
-
 NAME = libftprintf.a
-
-LIBFT = libft.a
-LIBFT_DIR = ./libft
-LIBFT_PATH = $(LIBFT_DIR)/$(LIBFT)
-
-all: $(LIBFT) $(NAME)
-
-bonus: $(LIBFT) $(NAME)
+CC = cc
+CFLAGS = -Wall -Werror -Wextra
+vpath %.c format checks util print
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME): $(OBJS)
+	$(MAKE) -C ./libft
+	cp libft/libft.a $(NAME)
+	ar rc $(NAME) $(OBJS)
+all: $(NAME)
 
 clean:
-	make clean -C $(LIBFT_DIR)
-	rm -f $(OBJS)
-
-fclean: clean
-	make fclean -C $(LIBFT_DIR)
-	rm -f $(NAME)
-
+	rm -Rf $(OBJS)
+	$(MAKE) -C ./libft clean
+fclean:	clean
+	rm -Rf $(NAME)
+	rm -Rf ./libft clean
 re: fclean all
-
-$(NAME): $(OBJS)
-	cp $(LIBFT_PATH) $(NAME)
-	ar -rcv $@ $<
-
-$(LIBFT):
-	make -C $(LIBFT_DIR)
-
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(LIBFT_DIR)
-
-.PHONY: all clean fclean re bonus 

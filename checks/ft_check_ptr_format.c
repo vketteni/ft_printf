@@ -3,17 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_ptr_format.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
+/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 18:26:20 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/16 01:47:30 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/18 19:02:27 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checks.h"
 
-int	ft_check_ptr_format(const char *format)
+const char	*ft_check_ptr_format(const char *format)
 {
+	const char	*valid_format;
+
+	valid_format = format;
 	while (ft_is_flag(*format))
 	{
 		if (*format != '-')
@@ -30,5 +33,5 @@ int	ft_check_ptr_format(const char *format)
 		format++;
 	if (*format != 'p')
 		return (0);
-	return (1);
+	return (valid_format);
 }

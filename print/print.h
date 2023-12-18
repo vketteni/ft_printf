@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
+/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 19:50:22 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/16 02:11:01 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/18 18:52:50 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ int	ft_print_hex(long long int hexa, int flag_alternative_form);
 
 int	ft_print_int_unsigned(unsigned int d);
 
-int	ft_print_format(t_format_field *field, va_list args);
+int	*ft_initialize_print_count(void);
 
-int	ft_print_padding(t_format_field *field, va_list args);
+int	ft_print_format_string(const char *format, va_list *args);
+
+int	ft_calculate_padding(int min_width, char specifier, va_list *args);
 
 #endif

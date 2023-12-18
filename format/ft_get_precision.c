@@ -6,14 +6,14 @@
 /*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:15:24 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/16 02:09:08 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/17 20:31:13 by vincentkett      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "format.h"
 
 t_format_field	*ft_get_precision(const char *format, t_format_field *field,
-		va_list args)
+		va_list *args)
 {
 	while (ft_is_flag(*format))
 		format++;
@@ -23,7 +23,7 @@ t_format_field	*ft_get_precision(const char *format, t_format_field *field,
 	{
 		format++;
 		if (*format == '*')
-			field->precision = va_arg(args, int);
+			field->precision = va_arg(*args, int);
 		else
 			field->precision = ft_atoi(format);
 	}

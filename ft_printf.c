@@ -3,60 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
+/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:37:37 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/16 01:14:52 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/18 17:08:20 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_process_format_specifier(const char *format, int *count,
-		va_list args)
-{
-	t_format_field	field;
 
-	if (*format == '%')
-	{
-		*count += ft_print_char('%');
-		return (1);
-	}
-	ft_get_specifier(format, &field);
-	if (!ft_check_validity(format, &field))
-		return (0);
-	ft_get_flags(format, &field);
-	ft_get_min_width(format, &field, args);
-	if (field.specifier == 's')
-		ft_get_precision(format, &field, args);
-	*count += ft_print_format(&field, args);
-	return (1);
-}
 
 int	ft_printf(const char *format, ...)
 {
+	int		print_count;
 	va_list	args;
-	int		count;
 
+	if (format == 0)
+		return (0);
+	print_count = 0;
 	va_start(args, format);
-	count = 0;
-	while (*format)
-	{
-		if (*format != '%')
-			count += ft_print_char(*format);
-		else
-		{
-			format++;
-			if (ft_process_format_specifier(format, &count, args) == 0)
-			{
-				va_end(args);
-				return (count);
-			}
-			while (!ft_is_format_specifier(*format))
-				format++;
-		}
-		format++;
-	}
+	format = ft_check_format_validity(format);
+	if (format != 0)
+		print_count = ft_print_format_string(format, &args);
 	va_end(args);
-	return (count);
-}
+	return (print_count);	
+}	
+
+
+

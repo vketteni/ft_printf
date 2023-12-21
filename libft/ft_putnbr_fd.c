@@ -3,13 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:26:08 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/01 13:31:34 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/20 15:31:05 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+
 #include "libft.h"
 
 static void	ft_putnbr_fd_rek(long n, int fd)
@@ -29,7 +29,7 @@ static void	ft_putnbr_fd_rek(long n, int fd)
 	}
 }
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(long n, int fd)
 {
 	long	nbr;
 

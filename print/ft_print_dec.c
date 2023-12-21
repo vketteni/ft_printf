@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int_unsigned.c                            :+:      :+:    :+:   */
+/*   ft_print_dec.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
+/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 20:14:28 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/16 02:08:18 by vincentkett      ###   ########.fr       */
+/*   Created: 2023/12/11 20:12:55 by vincentkett       #+#    #+#             */
+/*   Updated: 2023/12/20 15:38:38 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "print.h"
 
-int	ft_print_int_unsigned(unsigned int num)
+int	ft_print_dec(long dec, int show_sign)
 {
-	return (ft_print_int(num, 0));
+	int	count;
+
+	count = 0;
+	if (show_sign)
+		count += ft_print_char('+');
+	ft_putnbr_fd(dec, 1);
+	if (dec == 0)
+		count++;
+	else
+	{
+		if (dec < 0)
+			count++;
+		while (dec)
+		{
+			dec /= 10;
+			count++;
+		}
+	}
+	return (count);
 }

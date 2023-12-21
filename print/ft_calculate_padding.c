@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:58:28 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/18 18:35:42 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:14:54 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,30 @@
 
 static int	ft_specified_arg_len(char specifier, va_list args)
 {
+	long	di;
+
 	if (specifier == 'c')
 		return (1);
 	else if (specifier == 's')
 		return (ft_strlen(va_arg(args, char *)));
-	else if (specifier == 'p')
-		return (ft_strlen(va_arg(args, void *)));
-	else if (specifier == 'd' || specifier == 'i')
-		return (ft_strlen(ft_itoa(va_arg(args, int))));
-	else if (specifier == 'u')
-		return (ft_strlen(ft_itoa(va_arg(args, unsigned int))));
-	else if (specifier == 'x' || specifier == 'X')
-		return (ft_strlen(ft_itoa(va_arg(args, unsigned int))));
-	else
-		return (0);
+	else if (ft_strchr("pxX", specifier))
+	{
+		if (specifier == 'p')
+			return (ft_number_length((unsigned long)va_arg(args, void *), 16) + 2);
+		else 
+			return (ft_number_length((unsigned long)va_arg(args, unsigned int), 16));
+	}
+	else if (ft_strchr("diu", specifier))
+	{
+		if (specifier == 'u')
+			return ((unsigned long)ft_number_length(va_arg(args, unsigned int), 10));
+		else
+		{
+			di = va_arg(args, int);
+			return (ft_number_length((unsigned long)ft_absolute(di), 10));
+		}
+	}
+	return (-1);
 }
 
 int	ft_calculate_padding(int min_width, char specifier, va_list *args)

@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_todecimal.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 20:10:49 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/19 17:38:42 by vketteni         ###   ########.fr       */
+/*   Created: 2023/12/19 20:39:48 by vketteni          #+#    #+#             */
+/*   Updated: 2023/12/19 21:16:12 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print.h"
+#include "util.h"
 
-int	ft_print_str(char *str)
+int	ft_todecimal(char *src, int base)
 {
-	int	count;
+	int	n;
+	int	i;
 
-	count = 0;
-	if (!str)
+	i = 0;
+	n = 0;
+	while (*(src + i))
 	{
-		str = "(null)";
-		while (*str)
-			count += ft_print_char(*str++);
+		if (n == 0)
+		{
+			if (ft_isdigit(*(src + i)))
+				n = *(src + i) - '0';
+			else
+				n = ft_toupper(*(src + i)) - 'A' + 10;
+		}
+		else
+		{
+			if (ft_isdigit(*(src + i)))
+				n = (n * base) + *(src + i) - '0';
+			else
+				n = (n * base) + ft_toupper(*(src + i)) - 'A' + 10;
+		}
+		i++;
 	}
-	else
-	{
-		while (*(str))
-			count += ft_print_char(*(str++));
-	}
-	return (count);
+	return (n);
 }

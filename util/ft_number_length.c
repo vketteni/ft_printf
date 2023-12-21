@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_number_length.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 20:10:49 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/19 17:38:42 by vketteni         ###   ########.fr       */
+/*   Created: 2023/12/20 13:36:37 by vketteni          #+#    #+#             */
+/*   Updated: 2023/12/20 13:42:45 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print.h"
+#include "util.h"
 
-int	ft_print_str(char *str)
+int	ft_number_length(unsigned long nbr, int base)
 {
-	int	count;
+	int	len;
 
-	count = 0;
-	if (!str)
+	len = 0;
+	while (nbr > 0)
 	{
-		str = "(null)";
-		while (*str)
-			count += ft_print_char(*str++);
+		nbr /= base;
+		len++;
 	}
-	else
-	{
-		while (*(str))
-			count += ft_print_char(*(str++));
-	}
-	return (count);
+	return (len);
 }

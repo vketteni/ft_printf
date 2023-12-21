@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 20:56:56 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/19 00:37:38 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/20 15:36:46 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ static int	*ft_specified_printer(t_format_field *field, va_list *args, int *coun
 	else if (field->specifier == 'p')
 		*count += ft_print_ptr(va_arg(*args, void *));
 	else if (field->specifier == 'd' || field->specifier == 'i')
-		*count += ft_print_int(va_arg(*args, int), field->flag_always_sign);
+		*count += ft_print_dec((long)va_arg(*args, int), field->flag_always_sign);
 	else if (field->specifier == 'u')
-		*count += ft_print_int_unsigned(va_arg(*args, unsigned int));
+		*count += ft_print_dec((long)va_arg(*args, unsigned int), 0);
 	else if (field->specifier == 'x' || field->specifier == 'X')
 		*count += ft_print_hex(va_arg(*args, unsigned int),
 				field->flag_alternative_form);
@@ -51,7 +51,10 @@ static const char	*ft_process_format_specifier(const char *format, int *print_co
 
 	field = ft_initialize_format_field();
 	if (field == 0)
+	{
+		free(field);
 		return (0);
+	}
 	if (*format == '%')
 		*print_count += ft_print_char('%');
 	else
@@ -65,6 +68,7 @@ static const char	*ft_process_format_specifier(const char *format, int *print_co
 		}
 		va_end(args_copy);
 		ft_print_specified_format(field, args, print_count);
+		free(field);
 	}
 	return (format);
 }

@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 19:50:22 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/18 18:52:50 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/20 15:38:13 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,17 @@
 
 # include "../format/format.h"
 # include "../ft_printf.h"
+# include "../util/util.h"
 
 int	ft_print_char(char c);
 
 int	ft_print_str(char *str);
 
-int	ft_print_int(int num, int flag_always_sign);
+int	ft_print_dec(long dec, int flag_always_sign);
 
 int	ft_print_ptr(void *p);
 
-int	ft_print_hex(long long int hexa, int flag_alternative_form);
-
-int	ft_print_int_unsigned(unsigned int d);
+int	ft_print_hex(unsigned long hex, int flag_alternative_form);
 
 int	*ft_initialize_print_count(void);
 

@@ -3,60 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
+/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 20:13:52 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/16 02:08:43 by vincentkett      ###   ########.fr       */
+/*   Updated: 2023/12/20 13:03:34 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "print.h"
 
-int	ft_puthex_fd(unsigned int hex, int uppercase, int fd)
+int	ft_print_hex(unsigned long hex, int uppercase)
 {
-	int	case_constant;
+	int		i;	
+	int		count;
+	char	*hexadecimal;
 
+	i = 0;
+	hexadecimal = ft_tobase(hex, 16);
+	count = 0;
 	if (uppercase)
-		case_constant = 'a' - 'A';
-	else
-		case_constant = 0;
-	if (hex < 10)
-	{
-		ft_putchar_fd(hex + '0', fd);
-		return (1);
-	}
+		count += ft_print_str(hexadecimal);
 	else
 	{
-		ft_putchar_fd(hex - 10 + 'a' - case_constant, fd);
-		return (1);
+		while (hexadecimal[i])
+			count += ft_print_char(ft_tolower(hexadecimal[i++]));
 	}
-}
-
-static int	ft_print_hex_rekursion(long long int hexa, int uppercase)
-{
-	int	count;
-
-	count = 0;
-	if (hexa > 15)
-	{
-		count += ft_print_hex_rekursion(hexa / 16, uppercase);
-		count += ft_puthex_fd(hexa % 16, uppercase, 1);
-	}
-	else
-		count += ft_puthex_fd(hexa, uppercase, 1);
-	return (count);
-}
-
-int	ft_print_hex(long long int hexa, int uppercase)
-{
-	int	count;
-
-	count = 0;
-	count += ft_print_char('0');
-	if (!uppercase)
-		count += ft_print_char('x');
-	else
-		count += ft_print_char('X');
-	count += ft_print_hex_rekursion(hexa, uppercase);
+	free(hexadecimal);
 	return (count);
 }

@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_absolute.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
+/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 20:12:55 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/16 02:11:17 by vincentkett      ###   ########.fr       */
+/*   Created: 2023/12/20 14:07:04 by vketteni          #+#    #+#             */
+/*   Updated: 2023/12/20 14:14:15 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print.h"
+#include "util.h"
 
-int	ft_print_int(int num, int show_sign)
+unsigned int	ft_absolute(int n)
 {
-	int	count;
+	long abs;
 
-	count = 0;
-	if (show_sign)
-		count += ft_print_char('+');
-	ft_putnbr_fd(num, 1);
-	while (num)
-	{
-		num /= 10;
-		count++;
-	}
-	return (count);
+	abs = (long)n;
+	if (n < 0)
+		return (-abs);
+	return (abs);
 }

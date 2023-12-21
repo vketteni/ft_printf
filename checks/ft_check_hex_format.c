@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 18:26:00 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/18 19:08:29 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/20 12:59:07 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ const char	*ft_check_hex_format(const char *format)
 		format++;
 	if (*format == '.')
 		format++;
-	else if (*format != 'x' || *format != 'X')
-		return (0);
+	else if (*format == 'x' || *format == 'X')
+		return (valid_format);
 	while (ft_isdigit(*format))
 		format++;
-	if (*format != 'x' || *format != 'X')
-		return (0);
-	return (valid_format);
+	if (*format == 'x' || *format == 'X')
+		return (valid_format);
+	return (0);
 }

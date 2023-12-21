@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 13:19:54 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/01 13:04:48 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/20 15:32:02 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -54,7 +55,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
-void	ft_putnbr_fd(int n, int fd);
+void	ft_putnbr_fd(long n, int fd);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_atoi(const char *nptr);
 void	*ft_memchr(void *src, char chr, size_t n);

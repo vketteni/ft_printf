@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hex.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 20:13:52 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/21 16:21:24 by vketteni         ###   ########.fr       */
+/*   Created: 2023/12/21 16:13:30 by vketteni          #+#    #+#             */
+/*   Updated: 2023/12/21 16:17:49 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print.h"
+#include "ft_printf.h"
+#include <stdio.h>
+#include <limits.h>
 
-int	ft_print_hex(unsigned long hex, int uppercase)
+int	main(void)
 {
-	int		i;	
-	int		count;
-	char	*hexadecimal;
+	ft_printf(" '%d' \n",
+	ft_printf(" '%x' '%x' '%x' \n", 0, 0, 0));
 
-	if (hex == 0)
-		return (ft_print_char('0'));
-	i = 0;
-	hexadecimal = ft_tobase(hex, 16);
-	count = 0;
-	if (uppercase)
-		count += ft_print_str(hexadecimal);
-	else
-	{
-		while (hexadecimal[i])
-			count += ft_print_char(ft_tolower(hexadecimal[i++]));
-	}
-	free(hexadecimal);
-	return (count);
+	return (0);
 }

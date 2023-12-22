@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 19:50:22 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/20 15:38:13 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/22 01:42:23 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	ft_print_char(char c);
 
 int	ft_print_str(char *str);
 
-int	ft_print_dec(long dec, int flag_always_sign);
+int	ft_print_dec(long dec, t_format_field *field);
 
 int	ft_print_ptr(void *p);
 
-int	ft_print_hex(unsigned long hex, int flag_alternative_form);
+int	ft_print_hex(unsigned long hex, int uppercase, int flag_alternative_form);
 
 int	*ft_initialize_print_count(void);
 

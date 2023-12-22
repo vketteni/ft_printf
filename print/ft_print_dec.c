@@ -6,31 +6,22 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 20:12:55 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/20 15:38:38 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/22 13:01:16 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "print.h"
 
-int	ft_print_dec(long dec, int show_sign)
+int	ft_print_dec(long dec, t_format_field *field)
 {
 	int	count;
 
 	count = 0;
-	if (show_sign)
+	if (field->flag_always_sign && dec >= 0)
 		count += ft_print_char('+');
-	ft_putnbr_fd(dec, 1);
-	if (dec == 0)
-		count++;
-	else
-	{
-		if (dec < 0)
-			count++;
-		while (dec)
-		{
-			dec /= 10;
-			count++;
-		}
-	}
+	else if(field->flag_starts_with_blank && dec >= 0)
+		count += ft_print_char(' ');
+	count += ft_putnbr_fd(dec, 1);
+
 	return (count);
 }

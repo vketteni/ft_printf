@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 18:24:48 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/18 19:08:20 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/22 01:24:41 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,28 @@
 
 static const char	*ft_check_flag_combination(const char *format)
 {
-	int	flag_zero_padding;
-	int	flag_always_sign;
-	int	flag_left_justify;
-	int	flag_starts_with_blank;
+	t_format_field	*field;
 
+	field = ft_initialize_format_field();
 	while (ft_is_flag(*format))
 	{
 		if (*format == '0')
-			flag_zero_padding = 1;
+			field->flag_zero_padding = 1;
 		if (*format == '+')
-			flag_always_sign = 1;
+			field->flag_always_sign = 1;
 		if (*format == '-')
-			flag_left_justify = 1;
+			field->flag_left_justify = 1;
 		if (*format == ' ')
-			flag_starts_with_blank = 1;
-		if (flag_always_sign && flag_starts_with_blank)
-			return (0);
-		if (flag_left_justify && flag_zero_padding)
-			return (0);
+			field->flag_starts_with_blank = 1;
 		format++;
 	}
+	if ((field->flag_always_sign && field->flag_starts_with_blank)
+		|| (field->flag_left_justify && field->flag_zero_padding))
+	{
+		free(field);
+		return (0);
+	}
+	free(field);
 	return (format);
 }
 

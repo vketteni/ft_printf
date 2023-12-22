@@ -11,8 +11,8 @@
 
 | Flag Combination | ' ' (Space) | '-' (Minus) | '0' (Zero) | '#' (Hash) | '+' (Plus) |
 |:----------------:|:-----------:|:-----------:|:----------:|:----------:|:----------:|
-|    **' ' (Space)**   |      -      |     Yes     |     Yes    |     No     |     Yes    |
+|    **' ' (Space)**   |      -      |     Yes     |     Yes    |     No     |     No    |
 |    **'-' (Minus)**   |     Yes     |      -      |     No     |     Yes    |     Yes    |
 |    **'0' (Zero)**   |     Yes     |     No      |      -     |     Yes    |     Yes    |
 |    **'#' (Hash)**   |     No      |     Yes     |     Yes    |      -     |     No     |
-|    **'+' (Plus)**   |     Yes     |     Yes     |     Yes    |     No     |      -     |
+|    **'+' (Plus)**   |     No     |     Yes     |     Yes    |     No     |      -     |

@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:26:08 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/20 15:31:05 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/22 01:40:08 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,25 @@ static void	ft_putnbr_fd_rek(long n, int fd)
 	}
 }
 
-void	ft_putnbr_fd(long n, int fd)
+int	ft_putnbr_fd(long n, int fd)
 {
 	long	nbr;
+	int		count;
 
+	count = 0;
 	nbr = (long)n;
+	if (nbr == 0)
+		return (write(1, "0", 1));
 	if (nbr < 0)
 	{
-		write(fd, "-", 1);
+		count += write(1, "-", 1);
 		nbr = -nbr;
 	}
 	ft_putnbr_fd_rek(nbr, fd);
+	while (nbr)
+	{
+		nbr /= 10;
+		count++;
+	}
+	return (count);
 }

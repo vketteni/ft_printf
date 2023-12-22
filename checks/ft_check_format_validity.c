@@ -26,6 +26,8 @@ static const char	*ft_check_specified_format(const char *format, char specifier)
 		return (ft_check_uint_format(format));
 	else if (specifier == 'x' || specifier == 'X')
 		return (ft_check_hex_format(format));
+	else if (specifier == '%')
+		return (format);
 	else
 		return (0);
 }

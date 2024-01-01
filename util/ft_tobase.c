@@ -6,11 +6,11 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 18:04:46 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/20 14:20:15 by vketteni         ###   ########.fr       */
+/*   Updated: 2024/01/01 01:42:22 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "util.h"
+#include "../ft_printf.h"
 
 static int	ft_len_after_base_change(long unsigned decimal, int base)
 {

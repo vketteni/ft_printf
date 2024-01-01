@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_flag.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 16:01:39 by vketteni          #+#    #+#             */
-/*   Updated: 2024/01/01 01:42:22 by vketteni         ###   ########.fr       */
+/*   Created: 2024/01/01 02:02:23 by vketteni          #+#    #+#             */
+/*   Updated: 2024/01/01 02:02:28 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include <stddef.h>
 
-int	ft_is_flag(char c)
+size_t ft_strlen(const char *str)
 {
-	if (c == '-' || c == '+' || c == ' '  || c == '0'|| c == '#')
-		return (1);
-	return (0);
+	char	*start;
+	start = (char *)str;
+	while (*(str))
+		str++;
+	return (str - start);
 }

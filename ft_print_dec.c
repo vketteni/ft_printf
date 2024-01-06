@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_print_dec.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/01 13:26:08 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/22 01:40:08 by vketteni         ###   ########.fr       */
+/*   Created: 2023/12/11 20:12:55 by vincentkett       #+#    #+#             */
+/*   Updated: 2024/01/06 18:09:59 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "print.h"
 
 static void	ft_putnbr_fd_rek(long n, int fd)
 {
@@ -49,5 +49,20 @@ int	ft_putnbr_fd(long n, int fd)
 		nbr /= 10;
 		count++;
 	}
+	return (count);
+}
+
+
+int	ft_print_dec(long dec, t_format_field *field)
+{
+	int	count;
+
+	count = 0;
+	if (field->flag_always_sign && dec >= 0)
+		count += ft_print_char('+');
+	else if(field->flag_starts_with_blank && dec >= 0)
+		count += ft_print_char(' ');
+	count += ft_putnbr_fd(dec, 1);
+
 	return (count);
 }

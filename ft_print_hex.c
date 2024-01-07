@@ -6,26 +6,31 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 20:13:52 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/22 00:47:17 by vketteni         ###   ########.fr       */
+/*   Updated: 2024/01/07 00:59:29 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print.h"
+#include "ft_printf.h"
 
-int	ft_print_hex(unsigned long hex, int uppercase, int flag_alternative_form)
+static char	ft_tolower(char c)
 {
-	int		i;
+	if (c >= 'A' && c <= 'Z')
+		return (c + ('a' - 'A'));
+	return (c);
+}
+
+int	ft_print_hex(unsigned long hex, int uppercase)
+{
 	int		count;
+	int		i;
 	char	*hexadecimal;
 
-	count = 0;
-	if (flag_alternative_form && uppercase)
-		count += ft_print_str("0X");
-	if (flag_alternative_form && !uppercase)
-		count += ft_print_str("0x");
 	if (hex == 0)
-		return (ft_print_char('0') + count);
-	hexadecimal = ft_tobase(hex, 16);
+		return (ft_print_char('0'));
+	hexadecimal = ft_decimal_to_base(hex, "0123456789ABCDEF");
+	// if (hexadecimal == 0)
+	// 	return (0);
+	count = 0;
 	if (uppercase)
 		count += ft_print_str(hexadecimal);
 	else

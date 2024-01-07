@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vincentketteniss <vincentketteniss@stud    +#+  +:+       +#+        */
+/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 20:12:29 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/16 02:09:56 by vincentkett      ###   ########.fr       */
+/*   Updated: 2024/01/07 00:48:36 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print.h"
+#include "ft_printf.h"
 
 int	ft_print_char(char c)
 {

@@ -6,13 +6,11 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:37:37 by vketteni          #+#    #+#             */
-/*   Updated: 2024/01/06 18:07:22 by vketteni         ###   ########.fr       */
+/*   Updated: 2024/01/07 00:49:17 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-
 
 int	ft_printf(const char *format, ...)
 {

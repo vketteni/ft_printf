@@ -6,11 +6,11 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 20:11:12 by vincentkett       #+#    #+#             */
-/*   Updated: 2023/12/22 00:47:34 by vketteni         ###   ########.fr       */
+/*   Updated: 2024/01/07 00:37:04 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print.h"
+#include "ft_printf.h"
 
 int	ft_print_ptr(void *p)
 {
@@ -20,5 +20,5 @@ int	ft_print_ptr(void *p)
 	if (!p)
 		return (ft_print_str("0x0"));
 	else
-		return (ft_print_hex(ptr, 0, 1));
+		return (ft_print_str("0x") + ft_print_hex(ptr, 0));
 }

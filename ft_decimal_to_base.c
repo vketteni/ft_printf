@@ -6,15 +6,16 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 21:28:38 by vketteni          #+#    #+#             */
-/*   Updated: 2024/01/06 23:59:06 by vketteni         ###   ########.fr       */
+/*   Updated: 2024/01/12 12:02:13 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
 	char	*start;
+
 	start = (char *)str;
 	while (*(str))
 		str++;
@@ -36,17 +37,17 @@ static int	ft_len_after_base_change(long unsigned decimal, int base)
 
 char	*ft_decimal_to_base(unsigned long decimal, char *base)
 {
-	unsigned long		quotient;
-	unsigned long		remainder;
-	int		len;
-	char	*new_base;
+	unsigned long	quotient;
+	unsigned long	remainder;
+	int				len;
+	char			*new_base;
 
 	quotient = decimal;
 	len = ft_len_after_base_change(decimal, ft_strlen(base));
 	new_base = (char *)malloc(sizeof(char) * (len + 1));
 	if (!new_base)
 		return (0);
-	new_base[len--] = '\0';
+	new_base[len--] = '\0' ;
 	while (quotient && len >= 0)
 	{
 		remainder = quotient % ft_strlen(base);

@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 20:13:52 by vincentkett       #+#    #+#             */
-/*   Updated: 2024/01/07 00:59:29 by vketteni         ###   ########.fr       */
+/*   Updated: 2024/01/12 11:40:58 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int	ft_print_hex(unsigned long hex, int uppercase)
 	if (hex == 0)
 		return (ft_print_char('0'));
 	hexadecimal = ft_decimal_to_base(hex, "0123456789ABCDEF");
-	// if (hexadecimal == 0)
-	// 	return (0);
 	count = 0;
 	if (uppercase)
 		count += ft_print_str(hexadecimal);

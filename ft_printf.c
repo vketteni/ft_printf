@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:37:37 by vketteni          #+#    #+#             */
-/*   Updated: 2024/01/12 11:42:41 by vketteni         ###   ########.fr       */
+/*   Updated: 2024/01/14 14:20:14 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,20 @@ int	ft_printf(const char *format, ...)
 	return (print_count);
 }
 
-/* int	main(void)
+/* 
+
+#include "ft_printf.h"
+#include <stdio.h>
+#include <limits.h>
+
+int	main(void)
 {
 	ft_printf(" '%d' \n",
-		ft_printf(" '%u' \n", 123)
-		);
+	ft_printf(" '%p' \n", (void *)0));
 
 	return (0);
-} */
+}
+
+// cc -Wall -Werror -Wextra *.c
+
+*/

@@ -11,7 +11,7 @@ SRCS = ft_printf.c \
 OBJS = $(SRCS:.c=.o)
 NAME = libftprintf.a
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 $(NAME): $(OBJS)

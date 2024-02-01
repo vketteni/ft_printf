@@ -6,13 +6,13 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 21:28:38 by vketteni          #+#    #+#             */
-/*   Updated: 2024/01/12 12:02:13 by vketteni         ###   ########.fr       */
+/*   Updated: 2024/02/01 17:07:47 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_strlen(const char *str)
+static size_t	ft_strlen(const char *str)
 {
 	char	*start;
 
